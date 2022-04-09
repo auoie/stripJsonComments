@@ -4,16 +4,19 @@ import { FiSun, FiMoon } from "react-icons/fi";
 import { RiComputerLine } from "react-icons/ri";
 
 const update = () => {
-  console.log("updating");
+  console.log("Updating...");
   if (
     localStorage["theme"] === "dark" ||
     (!("theme" in localStorage) &&
       window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
-    document.documentElement.classList.add("dark");
+    document.documentElement.classList.add("dark", "changing-theme");
   } else {
-    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.remove("dark", "changing-theme");
   }
+  window.setTimeout(() => {
+    document.documentElement.classList.remove("changing-theme");
+  });
 };
 const settings = [
   {
@@ -35,38 +38,32 @@ const settings = [
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
 const useTheme = () => {
-  const [setting, setSetting] = useState("system");
+  const [setting, setSetting] = useState<"light" | "dark" | "system">("system");
   const initial = useRef(true);
   useIsomorphicLayoutEffect(() => {
-    console.log("first iso");
-    const theme = localStorage["theme"];
+    const theme = localStorage["theme"] as unknown;
     if (theme === "light" || theme === "dark") {
       setSetting(theme);
     }
-    console.log("theme:", theme);
   }, []);
   useIsomorphicLayoutEffect(() => {
-    console.log("second iso");
     if (setting === "system") {
       localStorage.removeItem("theme");
     } else if (setting === "light" || setting === "dark") {
       localStorage["theme"] = setting;
     }
     if (initial.current) {
-      console.log("is innitial current");
       initial.current = false;
     } else {
       update();
     }
-    console.log("localstorage[theme]:", localStorage["theme"]);
   }, [setting]);
   useEffect(() => {
-    console.log("third use");
     let mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     mediaQuery.addEventListener("change", update);
     const onStorage = () => {
       update();
-      const theme = localStorage["theme"];
+      const theme = localStorage["theme"] as unknown;
       if (theme === "light" || theme === "dark") {
         setSetting(theme);
       } else {
