@@ -10,13 +10,10 @@ const update = () => {
     (!("theme" in localStorage) &&
       window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
-    document.documentElement.classList.add("dark", "changing-theme");
+    document.documentElement.classList.add("dark");
   } else {
-    document.documentElement.classList.remove("dark", "changing-theme");
+    document.documentElement.classList.remove("dark");
   }
-  window.setTimeout(() => {
-    document.documentElement.classList.remove("changing-theme");
-  });
 };
 const settings = [
   {
