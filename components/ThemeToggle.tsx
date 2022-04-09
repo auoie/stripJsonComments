@@ -86,10 +86,10 @@ export const ThemeToggle = () => {
       <Listbox.Label className={"sr-only"}>Theme</Listbox.Label>
       <Listbox.Button type="button">
         <span className="dark:hidden">
-          <FiSun className="h-6 w-6" />
+          <FiSun className="h-28 w-28" />
         </span>
         <span className="hidden dark:inline">
-          <FiMoon className="h-6 w-6" />
+          <FiMoon className="h-28 w-28" />
         </span>
       </Listbox.Button>
       <Listbox.Options>
@@ -98,9 +98,9 @@ export const ThemeToggle = () => {
             <Listbox.Option
               key={value}
               value={value}
-              className="flex items-center"
+              className="flex items-center text-5xl"
             >
-              <Icon />
+              <Icon className="h-28 w-28"/>
               {label}
             </Listbox.Option>
           );
