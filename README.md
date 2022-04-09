@@ -19,6 +19,19 @@ npm install @headlessui/react@latest # for nice react components
 
 ## Dark Mode
 
+Basically, here are the things we need to do to make this work
+
+- Add `darkMode: class` to `tailwind.config.js`
+- Make the theme toggle component
+- Add the following to your CSS to make changing the theme instant.
+  ```bash
+  .changing-theme,
+  .changing-theme * {
+    transition: none !important;
+  }
+  ```
+- Add the `dangerouslySetInnerHTML` script to `_document.tsx`
+
 To enable class based [dark mode](https://javascript.plainenglish.io/how-to-create-light-and-dark-mode-toggle-in-next-js-with-tailwind-61e67518fd2d), it is necessary to add `darkMode: class`
 to `tailwind.config.js`.
 Then we just need to edit the classnames at the root of the document to either have `dark` or not have `dark`.
