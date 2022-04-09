@@ -63,11 +63,7 @@ const useTheme = () => {
   useEffect(() => {
     console.log("third use");
     let mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener("change", update);
-    } else {
-      mediaQuery.addListener(update);
-    }
+    mediaQuery.addEventListener("change", update);
     const onStorage = () => {
       update();
       const theme = localStorage["theme"];
@@ -79,11 +75,7 @@ const useTheme = () => {
     };
     window.addEventListener("storage", onStorage);
     return () => {
-      if (mediaQuery.removeEventListener) {
-        mediaQuery.removeEventListener("change", update);
-      } else {
-        mediaQuery.removeListener(update);
-      }
+      mediaQuery.removeEventListener("change", update);
       window.removeEventListener("storage", onStorage);
     };
   }, []);
