@@ -52,4 +52,11 @@ So this class address that issue.
 }
 ```
 
+When I built my project and served it with `npx next start` or exported it to static assets and served it with a file server, it would not automatically use
+my system dark theme.
+In order to make it work, I had to include the `dangerouslySetInnerHTML` script
+in `_document.tsx`.
+I didn't include this at first since it was working with `npx next dev`,
+but it seems like I need to include it when in production.
+
 To be honest though, I don't really understand the `useTheme` hook in `ThemeToggle.tsx`.
