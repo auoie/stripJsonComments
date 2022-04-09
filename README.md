@@ -24,3 +24,8 @@ to `tailwind.config.js`.
 Then we just need to edit the classnames at the root of the document to either have `dark` or not have `dark`.
 This can be done with
 `document.documentElement.classList.add("dark")` or `document.documentElement.classList.remove("dark")`.
+
+The third use effect block in the `useTheme` hook seems to be used for detecting changes in the system theme.
+When I remove it, and then change the theme in my iPhone, the theme doesn't change automatically.
+I have to refresh.
+When I include it, and I change the theme in my iPhone, the theme changes automatically.
