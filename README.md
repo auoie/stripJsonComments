@@ -1,5 +1,7 @@
 # Strip Json Comments
 
+https://user-images.githubusercontent.com/27778649/162640940-4ca3c8ef-5fad-446a-bafc-5c3852f65e1d.mp4
+
 ## Todo
 
 - [x] Persistent theme toggle using light, dark, or system
