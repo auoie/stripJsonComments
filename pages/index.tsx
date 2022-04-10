@@ -5,6 +5,24 @@ import { FC, useEffect, useState } from "react";
 import stripJsonComments from "strip-json-comments";
 import { ThemeToggle } from "../components/ThemeToggle";
 
+interface CopyButtonProps {
+  text: string;
+}
+const CopyButton: FC<CopyButtonProps> = ({ text }) => {
+  return (
+    <button
+      className={clsx(
+        "p-2 transition ring-1 rounded ring-opacity-10",
+        "bg-white ring-black ",
+        "dark:bg-black dark:ring-white dark:ring-opacity-10",
+        "hover:dark:bg-neutral-800",
+        "hover:bg-neutral-200"
+      )}
+    >
+      Copy to clipboard
+    </button>
+  );
+};
 const SideBySide = () => {
   const [darkMode, setDarkMode] = useState<boolean | null>(null);
   const [text, setText] = useState("");
@@ -44,17 +62,7 @@ const SideBySide = () => {
         <div className="flex items-center justify-center w-5/12 text-center">
           <div>JSON without Comments</div>
           <div className="ml-2 text-center">
-            <button
-              className={clsx(
-                "p-2 leading-tight transition ring-1 rounded ring-opacity-10",
-                "bg-white ring-black ",
-                "dark:bg-black dark:ring-white dark:ring-opacity-10",
-                "hover:dark:bg-neutral-800",
-                "hover:bg-neutral-200"
-              )}
-            >
-              Copy to clipboard
-            </button>
+            <CopyButton text={strippedJson} />
           </div>
         </div>
       </div>
@@ -111,7 +119,7 @@ const Header: FC = () => {
 };
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="leading-tight">
       <Header />
       <SideBySide />
     </div>
