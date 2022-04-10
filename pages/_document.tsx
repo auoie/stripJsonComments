@@ -30,7 +30,7 @@ class MyDocument extends Document {
             }}
           />
         </Head>
-        <body className="text-black bg-neutral-50 dark:bg-neutral-900 dark:text-white">
+        <body className="">
           <Main />
           <NextScript />
         </body>

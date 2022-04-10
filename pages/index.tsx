@@ -1,4 +1,5 @@
 import Editor, { useMonaco } from "@monaco-editor/react";
+import clsx from "clsx";
 import type { NextPage } from "next";
 import { FC, useEffect, useState } from "react";
 import stripJsonComments from "strip-json-comments";
@@ -13,16 +14,11 @@ const SideBySide = () => {
     monaco?.languages.json.jsonDefaults.setDiagnosticsOptions({
       allowComments: true,
     });
-    // or make sure that it exists by other ways
-    if (monaco) {
-      console.log("here is the monaco instance:", monaco);
-    }
   }, [monaco]);
   useEffect(() => {
     const element = document.documentElement;
     setDarkMode(document.documentElement.classList.contains("dark"));
     const observer = new MutationObserver(() => {
-      console.log(document.documentElement.classList.contains("dark"));
       setDarkMode(document.documentElement.classList.contains("dark"));
     });
     observer.observe(element, {
@@ -33,12 +29,44 @@ const SideBySide = () => {
     });
   }, []);
   const theme = darkMode ? "vs-dark" : "vs";
-  console.log("render");
+  const strippedJson = stripJsonComments(text);
   return (
     <div>
-      <div className="flex">
+      <div
+        className={clsx(
+          "flex items-center w-full py-2 z-50 ring-1",
+          "ring-black ring-opacity-5",
+          "dark:ring-white dark:ring-opacity-10"
+        )}
+      >
+        <div className="w-5/12 text-center">JSON with Comments</div>
+        <div className="w-2/12 text-xl font-light text-center">➞</div>
+        <div className="flex items-center justify-center w-5/12 text-center">
+          <div>JSON without Comments</div>
+          <div className="ml-2 text-center">
+            <button
+              className={clsx(
+                "p-2 leading-tight transition ring-1 rounded ring-opacity-10",
+                "bg-white ring-black ",
+                "dark:bg-black dark:ring-white dark:ring-opacity-10",
+                "hover:dark:bg-neutral-800",
+                "hover:bg-neutral-200"
+              )}
+            >
+              Copy to clipboard
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className={clsx(
+          "flex ring-1",
+          "ring-black ring-opacity-5",
+          "dark:ring-white dark:ring-opacity-5"
+        )}
+      >
         <Editor
-          height="80vh"
+          height={"80vh"}
           width={"50%"}
           defaultLanguage="json"
           value={text}
@@ -46,6 +74,7 @@ const SideBySide = () => {
             minimap: {
               enabled: false,
             },
+            lineNumbers: "off",
           }}
           onChange={(event) => {
             if (event) {
@@ -58,11 +87,12 @@ const SideBySide = () => {
           height="80vh"
           width={"50%"}
           defaultLanguage="json"
-          value={stripJsonComments(text)}
+          value={strippedJson}
           options={{
             minimap: {
               enabled: false,
             },
+            lineNumbers: "off",
             readOnly: true,
           }}
           theme={theme}

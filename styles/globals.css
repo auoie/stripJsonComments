@@ -4,4 +4,7 @@
 .changing-theme * {
   transition: none !important;
 }
+.dark {
+  color-scheme: dark
+}
 @tailwind utilities;
