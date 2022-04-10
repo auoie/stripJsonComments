@@ -1,4 +1,4 @@
-import Editor, { DiffEditor } from "@monaco-editor/react";
+import Editor from "@monaco-editor/react";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import stripJsonComments from "strip-json-comments";
@@ -53,7 +53,7 @@ const SideBySide = () => {
             minimap: {
               enabled: false,
             },
-            readOnly: true
+            readOnly: true,
           }}
           theme={theme}
         />
