@@ -75,3 +75,8 @@ I didn't include this at first since it was working with `npx next dev`,
 but it seems like I need to include it when in production.
 
 To be honest though, I don't really understand the `useTheme` hook in `ThemeToggle.tsx`.
+
+## Monaco Editor
+
+I'm getting a warning `Duplicate definition of module '===anonymous1==='`.
+I don't know how to get rid of this so I'm just going to ignore it.
