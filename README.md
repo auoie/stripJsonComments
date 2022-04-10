@@ -8,7 +8,9 @@
 - [ ] Style the copy button to make it user friendly.
 - [ ] Remove all console warnings. In particular, I'm getting a warning from having multiple instances of Monaco.
 - [ ] Navbar to and explanation how the the app works.
+      Should be somewhat similar to https://mholt.github.io/json-to-go/.
 - [x] Highlight for JSON with comments and JSON without comments. https://github.com/microsoft/monaco-editor/issues/2426 and https://github.com/suren-atoyan/monaco-react/blob/master/demo/src/sections/Editor/Editor.js
+- [ ] Make the monaco editor extend to the bottom
 
 ## Project Setup
 
