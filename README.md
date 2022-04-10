@@ -106,3 +106,4 @@ Before, the `.changing-theme` class is added only when transitioning to dark mod
 
 I'm getting a warning `Duplicate definition of module '===anonymous1==='`.
 I don't know how to get rid of this so I'm just going to ignore it.
+I cool project use the Monaco editor is [rustpad](https://rustpad.io/#onRuYY).
