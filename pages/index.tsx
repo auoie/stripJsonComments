@@ -122,13 +122,18 @@ const SideBySide = () => {
 };
 const Header: FC = () => {
   return (
-    <div className="container flex items-center justify-between py-5 mx-auto">
-      <div className="text-3xl font-bold leading-7">
-        <div>JSON</div>
-        <div>Comment</div>
-        <div>Remover</div>
+    <div className="flex items-center justify-between w-full py-5 mx-auto">
+      <div className="flex items-center justify-center w-1/3">
+        <div className="text-3xl font-bold leading-7">
+          <div>JSON</div>
+          <div>Comment</div>
+          <div>Remover</div>
+        </div>
       </div>
-      <ThemeToggle />
+      <div className="w-1/3"></div>
+      <div className="flex items-center justify-center w-1/3">
+        <ThemeToggle />
+      </div>
     </div>
   );
 };
