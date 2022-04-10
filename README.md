@@ -4,6 +4,7 @@
 
 - [x] Persistent theme toggle using light, dark, or system
 - [ ] Style the theme toggle to make it user friendly. This shows a basic way to do it. https://headlessui.dev/react/listbox. I still need to color the currently selected theme and then apply color when hovered.
+- [ ] Add copy button functionality.
 - [ ] Remove all console warnings. In particular, I'm getting a warning from having multiple instances of Monaco.
 - [ ] Navbar to show project information
 - [x] Highlight for JSON with comments and JSON without comments. https://github.com/microsoft/monaco-editor/issues/2426 and https://github.com/suren-atoyan/monaco-react/blob/master/demo/src/sections/Editor/Editor.js

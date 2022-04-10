@@ -9,15 +9,19 @@ interface CopyButtonProps {
   text: string;
 }
 const CopyButton: FC<CopyButtonProps> = ({ text }) => {
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(text);
+  };
   return (
     <button
       className={clsx(
-        "p-2 transition ring-1 rounded ring-opacity-10",
-        "bg-white ring-black ",
+        "p-2 transition ring-1 leading-4 tracking-tight font-semibold rounded ring-opacity-10",
+        "bg-white ring-black",
         "dark:bg-black dark:ring-white dark:ring-opacity-10",
         "hover:dark:bg-neutral-800",
         "hover:bg-neutral-200"
       )}
+      onClick={copyToClipboard}
     >
       Copy to clipboard
     </button>
@@ -57,10 +61,14 @@ const SideBySide = () => {
           "dark:ring-white dark:ring-opacity-10"
         )}
       >
-        <div className="w-5/12 text-center">JSON with Comments</div>
-        <div className="w-2/12 text-xl font-light text-center">➞</div>
-        <div className="flex items-center justify-center w-5/12 text-center">
-          <div>JSON without Comments</div>
+        <div className="w-5/12 font-bold leading-4 tracking-tight text-center">
+          JSON with Comments
+        </div>
+        <div className="w-2/12 text-xl font-bold leading-4 tracking-tight text-center">
+          ➞
+        </div>
+        <div className="flex items-center justify-center w-5/12 font-bold leading-4 tracking-tight text-center">
+          <div>JSON</div>
           <div className="ml-2 text-center">
             <CopyButton text={strippedJson} />
           </div>
@@ -74,7 +82,7 @@ const SideBySide = () => {
         )}
       >
         <Editor
-          height={"80vh"}
+          height={"75vh"}
           width={"50%"}
           defaultLanguage="json"
           value={text}
@@ -92,7 +100,7 @@ const SideBySide = () => {
           theme={theme}
         />
         <Editor
-          height="80vh"
+          height="75vh"
           width={"50%"}
           defaultLanguage="json"
           value={strippedJson}
@@ -112,7 +120,11 @@ const SideBySide = () => {
 const Header: FC = () => {
   return (
     <div className="container flex items-center justify-between py-5 mx-auto">
-      <div className="text-3xl font-bold">JSON Comment Remover</div>
+      <div className="text-3xl font-bold leading-7">
+        <div>JSON</div>
+        <div>Comment</div>
+        <div>Remover</div>
+      </div>
       <ThemeToggle />
     </div>
   );
