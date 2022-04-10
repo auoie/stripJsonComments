@@ -1,12 +1,23 @@
-import Editor from "@monaco-editor/react";
+import Editor, { useMonaco } from "@monaco-editor/react";
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import stripJsonComments from "strip-json-comments";
 import { ThemeToggle } from "../components/ThemeToggle";
 
 const SideBySide = () => {
   const [darkMode, setDarkMode] = useState<boolean | null>(null);
   const [text, setText] = useState("");
+  const monaco = useMonaco();
+  useEffect(() => {
+    // do conditional chaining
+    monaco?.languages.json.jsonDefaults.setDiagnosticsOptions({
+      allowComments: true,
+    });
+    // or make sure that it exists by other ways
+    if (monaco) {
+      console.log("here is the monaco instance:", monaco);
+    }
+  }, [monaco]);
   useEffect(() => {
     const element = document.documentElement;
     setDarkMode(document.documentElement.classList.contains("dark"));
@@ -25,12 +36,11 @@ const SideBySide = () => {
   console.log("render");
   return (
     <div>
-      {darkMode === null ? "null" : darkMode === true ? "true" : "false"}
       <div className="flex">
         <Editor
           height="80vh"
           width={"50%"}
-          defaultLanguage="text"
+          defaultLanguage="json"
           value={text}
           options={{
             minimap: {
@@ -61,12 +71,18 @@ const SideBySide = () => {
     </div>
   );
 };
-
+const Header: FC = () => {
+  return (
+    <div className="container flex items-center justify-between py-5 mx-auto">
+      <div className="text-3xl font-bold">JSON Comment Remover</div>
+      <ThemeToggle />
+    </div>
+  );
+};
 const Home: NextPage = () => {
   return (
     <div>
-      <div className="text-3xl font-bold underline">Hi</div>
-      <ThemeToggle />
+      <Header />
       <SideBySide />
     </div>
   );
