@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Listbox } from "@headlessui/react";
 import { FiSun, FiMoon } from "react-icons/fi";
 import { RiComputerLine } from "react-icons/ri";
+import clsx from "clsx";
 
 const update = () => {
   console.log("Updating...");
@@ -84,12 +85,18 @@ export const ThemeToggle = () => {
   return (
     <Listbox value={setting} onChange={setSetting}>
       <Listbox.Label className={"sr-only"}>Theme</Listbox.Label>
-      <Listbox.Button type="button">
-        <span className="dark:hidden">
+      <Listbox.Button type="button" className={"flex items-center"}>
+        <span className={clsx(setting !== "light" && "hidden")}>
           <FiSun className="h-28 w-28" />
         </span>
-        <span className="hidden dark:inline">
+        <span className={clsx(setting !== "dark" && "hidden")}>
           <FiMoon className="h-28 w-28" />
+        </span>
+        <span className={clsx(setting !== "system" && "hidden")}>
+          <RiComputerLine className="h-28 w-28" />
+        </span>
+        <span className="text-5xl">
+          {setting}
         </span>
       </Listbox.Button>
       <Listbox.Options>
@@ -100,7 +107,7 @@ export const ThemeToggle = () => {
               value={value}
               className="flex items-center text-5xl"
             >
-              <Icon className="h-28 w-28"/>
+              <Icon className="h-28 w-28" />
               {label}
             </Listbox.Option>
           );
