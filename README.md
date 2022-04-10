@@ -86,6 +86,15 @@ but it seems like I need to include it when in production.
 
 To be honest though, I don't really understand the `useTheme` hook in `ThemeToggle.tsx`.
 
+## Dark Mode Bug
+
+The Tailwind `ThemeToggle.tsx` component has a bug.
+When you transition from dark mode to light mode,
+elements with a transition time set will not transition automatically.
+This is because the `.changing-theme` class is absent.
+To fix it, you need to add it to the root element regardless of the transition type.
+Before, the `.changing-theme` class is added only when transitioning to dark mode.
+
 ## Monaco Editor
 
 I'm getting a warning `Duplicate definition of module '===anonymous1==='`.
