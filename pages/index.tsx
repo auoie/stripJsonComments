@@ -1,5 +1,6 @@
 import Editor, { useMonaco } from "@monaco-editor/react";
 import clsx from "clsx";
+import copy from "copy-to-clipboard";
 import type { NextPage } from "next";
 import { FC, useEffect, useState } from "react";
 import stripJsonComments from "strip-json-comments";
@@ -10,7 +11,7 @@ interface CopyButtonProps {
 }
 const CopyButton: FC<CopyButtonProps> = ({ text }) => {
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(text);
+    copy(text);
   };
   return (
     <button
@@ -95,6 +96,8 @@ const SideBySide = () => {
           onChange={(event) => {
             if (event) {
               setText(event);
+            } else {
+              setText("");
             }
           }}
           theme={theme}

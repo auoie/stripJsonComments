@@ -28,6 +28,7 @@ npm install react-icons # for sun, moon, and default
 npm install @headlessui/react@latest # for nice react components
 npm install --legacy-peer-deps @monaco-editor/react
 npm install strip-json-comments # for removing comments from json
+npm install copy-to-clipboard
 ```
 
 ## Dark Mode
