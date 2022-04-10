@@ -5,7 +5,7 @@ https://user-images.githubusercontent.com/27778649/162640940-4ca3c8ef-5fad-446a-
 ## Todo
 
 - [x] Persistent theme toggle using light, dark, or system
-- [ ] Style the theme toggle to make it user friendly. This shows a basic way to do it. https://headlessui.dev/react/listbox. I still need to color the currently selected theme and then apply color when hovered.
+- [x] Style the theme toggle to make it user friendly. This shows a basic way to do it. https://headlessui.dev/react/listbox. I still need to color the currently selected theme and then apply color when hovered.
 - [x] Add copy button functionality.
 - [ ] Style the copy button to make it user friendly.
 - [ ] Remove all console warnings. In particular, I'm getting a warning from having multiple instances of Monaco.
