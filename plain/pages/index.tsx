@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Div100vh from "react-div-100vh";
 
 import Head from "next/head";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useState } from "react";
 import stripJsonComments from "strip-json-comments";
 import Link from "next/link";
 
