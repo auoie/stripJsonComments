@@ -22,13 +22,13 @@ const Home: NextPage = () => {
         {/* <div className="px-2 py-1 hover:bg-gray-400 cursor-pointer">About</div> */}
       </nav>
       <div className="flex flex-row justify-center items-center">
-        <div className="py-1 px-2 w-[45%] justify-center items-center flex">
+        <div className="py-1 px-2 w-[45%] justify-center text-center items-center flex leading-5">
           JSON with Comments
         </div>
-        <div className="py-1 px-2 w-[10%] justify-center items-center flex">
+        <div className="py-1 px-2 w-[10%] justify-center text-center items-center flex leading-5">
           to
         </div>
-        <div className="py-1 px-2 w-[45%] justify-center items-center flex">
+        <div className="py-1 px-2 w-[45%] justify-center text-center items-center flex leading-5">
           JSON
         </div>
       </div>
@@ -43,6 +43,7 @@ const Home: NextPage = () => {
         <textarea
           className="font-mono flex overflow-auto flex-1 bg-gray-300 p-2"
           value={stripJsonComments(inputText)}
+          readOnly
         ></textarea>
       </div>
     </Div100vh>
