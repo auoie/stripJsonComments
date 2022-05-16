@@ -13,28 +13,35 @@ const Home: NextPage = () => {
       <Head>
         <title>Remove JSON Comments</title>
       </Head>
-      <nav className="flex">
-        <Link href={"/"}>
-          <a className="hover:bg-zinc-700">Strip JSON Comments</a>
-        </Link>
+      <nav className="flex bg-gray-200">
+        <div className="hover:bg-gray-400">
+          <Link href={"/"} className="flex flex-1">
+            <a className="flex px-2 py-1">Strip JSON Comments</a>
+          </Link>
+        </div>
+        {/* <div className="px-2 py-1 hover:bg-gray-400 cursor-pointer">About</div> */}
       </nav>
       <div className="flex flex-row justify-center items-center">
-        <div className="w-[45%] justify-center items-center flex">
+        <div className="py-1 px-2 w-[45%] justify-center items-center flex">
           JSON with Comments
         </div>
-        <div className="w-[10%] justify-center items-center flex">to</div>
-        <div className="w-[45%] justify-center items-center flex">JSON</div>
+        <div className="py-1 px-2 w-[10%] justify-center items-center flex">
+          to
+        </div>
+        <div className="py-1 px-2 w-[45%] justify-center items-center flex">
+          JSON
+        </div>
       </div>
       <div className="flex flex-1 min-h-0">
         <textarea
-          className="flex overflow-auto flex-1 bg-gray-700 p-2"
+          className="font-mono flex overflow-auto flex-1 bg-gray-200 p-2"
           onInput={(event) => {
             const text = event.currentTarget.value;
             setInputText(text !== null ? text : "");
           }}
         ></textarea>
         <textarea
-          className="flex overflow-auto flex-1 bg-gray-800 p-2"
+          className="font-mono flex overflow-auto flex-1 bg-gray-300 p-2"
           value={stripJsonComments(inputText)}
         ></textarea>
       </div>
