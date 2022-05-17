@@ -36,6 +36,12 @@ const App: FC = () => {
         scrollBeyondLastLine: false,
         readOnly: true,
       });
+      const messageContribution = created.getContribution(
+        "editor.contrib.messageController"
+      );
+      created.onDidAttemptReadOnlyEdit(() => {
+        messageContribution?.dispose();
+      });
       setResult(created);
     }
     return () => result?.dispose();
@@ -44,13 +50,19 @@ const App: FC = () => {
     result?.setValue(stripJsonComments(text));
   }, [text]);
   return (
-    <Div100vh className="flex flex-col min-h-0">
-      <div>Remove JSON Comments</div>
+    <Div100vh className="flex flex-col">
+      <div className="p-2 text-center">Remove JSON Comments</div>
       <div className="flex flex-1">
-        <div className="flex flex-1 w-1/2" ref={monacoEl}></div>
-        <div className="flex flex-1 w-1/2" ref={resultEl}></div>
+        <div className="flex flex-col flex-1 w-1/2">
+          <div className="text-center">JSON with Comments</div>
+          <div className="flex flex-1 overflow-hidden" ref={monacoEl}></div>
+        </div>
+        <div className="flex flex-col flex-1 w-1/2 ">
+          <div className="text-center">JSON</div>
+          <div className="flex flex-1 overflow-hidden" ref={resultEl}></div>
+        </div>
       </div>
-      <div>Made with Monaco</div>
+      <div className="p-2 text-center">Made with Monaco</div>
     </Div100vh>
   );
 };
