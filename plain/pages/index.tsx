@@ -19,9 +19,9 @@ const Home: NextPage = () => {
             <a className="flex px-2 py-1">Strip JSON Comments</a>
           </Link>
         </div>
-        {/* <div className="px-2 py-1 hover:bg-gray-400 cursor-pointer">About</div> */}
+        {/* <div className="px-2 py-1 cursor-pointer hover:bg-gray-400">About</div> */}
       </nav>
-      <div className="flex flex-row justify-center items-center">
+      <div className="flex flex-row items-center justify-center">
         <div className="py-1 px-2 w-[45%] justify-center text-center items-center flex leading-5">
           JSON with Comments
         </div>
@@ -32,20 +32,21 @@ const Home: NextPage = () => {
           JSON
         </div>
       </div>
-      <div className="flex flex-1 min-h-0">
+      <div className="flex flex-1">
         <textarea
-          className="font-mono flex overflow-auto flex-1 bg-gray-200 p-2"
+          className="flex flex-1 p-2 overflow-auto font-mono bg-gray-200"
           onInput={(event) => {
             const text = event.currentTarget.value;
             setInputText(text !== null ? text : "");
           }}
         ></textarea>
         <textarea
-          className="font-mono flex overflow-auto flex-1 bg-gray-300 p-2"
+          className="flex flex-1 p-2 overflow-auto font-mono bg-gray-300"
           value={stripJsonComments(inputText)}
           readOnly
         ></textarea>
       </div>
+      <div>Made with Monaco</div>
     </Div100vh>
   );
 };
