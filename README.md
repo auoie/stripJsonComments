@@ -17,3 +17,9 @@ of the monaco GitHub repository.
 A useful reference to include monaco in React was [this repository](https://github.com/react-monaco-editor/react-monaco-editor)
 
 This automatically is built and deployed with `rsync` to a remote VPS using GitHub actions.
+
+## Similar Websites
+
+- https://mholt.github.io/json-to-go/
+- https://www.onlinetool.io/xmltogo/
+- https://github.com/ekzhang/rustpad. This shows good usage of the monaco editor.
