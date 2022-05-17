@@ -50,17 +50,19 @@ const App: FC = () => {
     result?.setValue(stripJsonComments(text));
   }, [text]);
   return (
-    <Div100vh className="flex flex-col">
+    <Div100vh className="flex flex-col flex-1">
       <div className="p-2 text-center">Remove JSON Comments</div>
-      <div className="flex flex-1">
+      <div className="flex">
         <div className="flex flex-col flex-1 w-1/2">
           <div className="text-center">JSON with Comments</div>
-          <div className="flex flex-1 overflow-hidden" ref={monacoEl}></div>
         </div>
-        <div className="flex flex-col flex-1 w-1/2 ">
+        <div className="flex flex-col flex-1 w-1/2">
           <div className="text-center">JSON</div>
-          <div className="flex flex-1 overflow-hidden" ref={resultEl}></div>
         </div>
+      </div>
+      <div className="flex flex-1 overflow-x-hidden overflow-y-auto border-t border-b">
+        <div className="flex flex-1 border" ref={monacoEl}></div>
+        <div className="flex flex-1 border" ref={resultEl}></div>
       </div>
       <div className="p-2 text-center">Made with Monaco</div>
     </Div100vh>
