@@ -44,12 +44,13 @@ const App: FC = () => {
     result?.setValue(stripJsonComments(text));
   }, [text]);
   return (
-    <Div100vh className="flex flex-col">
+    <Div100vh className="flex flex-col min-h-0">
       <div>Remove JSON Comments</div>
       <div className="flex flex-1">
         <div className="flex flex-1 w-1/2" ref={monacoEl}></div>
         <div className="flex flex-1 w-1/2" ref={resultEl}></div>
       </div>
+      <div>Made with Monaco</div>
     </Div100vh>
   );
 };

@@ -32,7 +32,7 @@ const Home: NextPage = () => {
           JSON
         </div>
       </div>
-      <div className="flex flex-1">
+      <div className="flex flex-1 min-h-0">
         <textarea
           className="flex flex-1 p-2 overflow-auto font-mono bg-gray-200"
           onInput={(event) => {
@@ -46,7 +46,6 @@ const Home: NextPage = () => {
           readOnly
         ></textarea>
       </div>
-      <div>Made with Monaco</div>
     </Div100vh>
   );
 };
