@@ -1,6 +1,6 @@
 import { FC, useEffect, useLayoutEffect, useRef, useState } from "react";
 import * as monaco from "monaco-editor/esm/vs/editor/editor.api";
-import tsconfig from "./tsconfig";
+import initialJson from "./initialJson";
 import stripJsonComments from "strip-json-comments";
 import Div100vh from "react-div-100vh";
 
@@ -8,7 +8,7 @@ const App: FC = () => {
   const [editor, setEditor] =
     useState<monaco.editor.IStandaloneCodeEditor | null>(null);
   const monacoEl = useRef(null);
-  const [text, setText] = useState(tsconfig);
+  const [text, setText] = useState(initialJson);
   const [result, setResult] =
     useState<monaco.editor.IStandaloneCodeEditor | null>(null);
   const resultEl = useRef(null);
