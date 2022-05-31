@@ -28,3 +28,4 @@ This automatically is built and deployed with `rsync` to a remote VPS using GitH
 ## Todo
 
 - [ ] The codesignal integration of the monaco editor automatically resizes. I need to figure out how to do that.
+- [ ] Because of `overflow: hidden`, warnings are cutoff when I hover above them. I need to resolve this.
