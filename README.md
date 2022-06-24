@@ -24,6 +24,7 @@ This automatically is built and deployed with `rsync` to a remote VPS using GitH
 - https://www.onlinetool.io/xmltogo/
 - https://github.com/ekzhang/rustpad. This shows good usage of the monaco editor.
 - https://app.codesignal.com/arcade/intro/level-2/yuGuHvcCaFCKk56rJ. Their editor is nicely integrated.
+- https://transform.tools/typescript-to-zod. This makes good usage of monaco.
 
 ## Todo
 
